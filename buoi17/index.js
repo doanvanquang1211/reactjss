@@ -53,10 +53,10 @@ class App extends React.Component {
                     <button disabled={!this.state.text} className={this.state.text ? 'button' : ""} onClick={this.clickButton}>Add Task</button>
 
                 </div>
-                {this.state.listTodo.map((item, index) => {
+                <ul className="todoList">{this.state.listTodo.map((item, index) => {
                     return <TodoApp key={index} item={item} deleteTask={() => this.deleteTask(item.id)} />
                 })}
-
+                </ul>
 
                 <div className="footer">
                     <p className="content">You have <span className="pendingTask">{this.state.listTodo.length}</span> pending task</p>
@@ -74,7 +74,7 @@ class TodoApp extends React.Component {
     render() {
 
         return (
-            < ul className="todoList" >
+            < ul  >
                 <li >
                     {this.props.item.taskTodo}
                     {<span onClick={this.props.deleteTask} className="icon" ><i className="fas fa-trash-alt"></i>
